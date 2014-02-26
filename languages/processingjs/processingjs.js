@@ -70,8 +70,6 @@
         wb.historySwitchState('result');
     });
 
-
-
     function clearStage(event){
         document.body.classList.remove('running');
         document.querySelector('.stageframe').contentWindow.postMessage(JSON.stringify({command: 'reset'}), '*');
@@ -90,17 +88,6 @@
         view.innerHTML = '<pre class="language-javascript">' + wb.prettyScript(elements) + '</pre>';
         hljs.highlightBlock(view.firstChild);
     };
-
-    //<script type="text/processing" data-processing-target="processing-canvas">
-    //void setup() {
-    //  size(200, 200);
-    //  background(100);
-    //  stroke(255);
-    //  ellipse(50, 50, 25, 25);
-    //  println('hello web!');
-    //}
-    //</script>
-    //<canvas id="processing-canvas"> </canvas>
 
     // End UI section
 

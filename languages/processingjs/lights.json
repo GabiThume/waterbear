@@ -1,0 +1,17 @@
+{
+    "name": "Lights",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-4647-a762-920d493b5a21",
+            "script": "height",
+            "type": "number",
+            "help": "System variable which stores the height of the display window",
+            "sockets": [
+                {
+                    "name": "height"
+                }
+            ]
+        }
+    ]
+}

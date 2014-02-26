@@ -2537,52 +2537,87 @@ a .icon-flip-vertical:before {
 
 /*begin languages/processingjs/structure.css*/
 .input, .input .holder{
-    background-color: hsl(296, 65%, 77%);
-    border-color: hsl(296, 65%, 57%);
+    border-color: hsl(43, 100%, 84%);
+    background-color: hsl(43, 100%, 89%);
 }
 
 .structure, .structure .holder{
-    border-color: hsl(120, 81%, 49%);
-    background-color: hsl(120, 81%, 85%);
+    border-color: hsl(0, 96%, 80%);
+    background-color: hsl(0, 96%, 85%);
 }
 
 .movingstructure, .movingstructure .holder{
-    border-color: hsl(150, 81%, 49%);
+    border-color:  hsl(150, 81%, 80%);
     background-color: hsl(150, 81%, 85%);
 }
 .environment, .environment .holder{
-    border-color: hsl(250, 65%, 79%);
-    background-color: hsl(250, 62%, 89%);
+    border-color: hsl(300, 100%, 83%);
+    background-color: hsl(300, 100%, 88%);
 }
 
 .colors, .colors .holder{
-    border-color: hsl(200,98%,56%);
-    background-color: hsl(200,98%,76%);
+    border-color: hsl(274, 100%, 65%);
+    background-color: hsl(274, 100%, 70%);
 }
 
 .control, .control .holder{
-    border-color: hsl(75, 90%, 66%);
-    background-color: hsl(75, 90%, 76%);
+    border-color: hsl(218, 100%, 84%);
+    background-color: hsl(218, 100%, 89%);
 }
 
 .math, .math .holder{
-    border-color: hsl(185, 60%, 79%);
-    background-color: hsl(170, 55%, 89%);
+    border-color: hsl(60, 100%, 76%);
+    background-color: hsl(60, 100%, 81%);
 }
 
 .points, .points .holder{
-    border-color: hsl(90, 65%, 79%);
+    border-color: hsl(90, 62%, 84%);
     background-color: hsl(90, 62%, 89%);
 }
 
 .shape, .shape .holder{
-    border-color: hsl(25, 100%, 63%);
-    background-color: hsl(25, 100%, 83%);
+    border-color:  hsl(134, 100%, 83%);
+    background-color: hsl(134, 100%, 88%);
 }
 
 .transform, .transform .holder{
-    border-color: hsl(240, 65%, 83%);
-    background-color: hsl(240, 65%, 93%);
+    border-color: hsl(336, 100%, 63%);
+    background-color: hsl(336, 100%, 72%);
+}
+
+.lights, .lights .holder{
+    border-color: hsl(307, 88%, 73%);
+    background-color: hsl(307, 88%, 78%);
+}
+
+.image, .image .holder{
+    border-color: hsl(238, 91%, 65%);
+    background-color: hsl(238, 91%, 70%);
+}
+
+.data, .data .holder{
+    border-color: hsl(264, 96%, 79%);
+    background-color: hsl(264, 96%, 84%);
+}
+
+.output, .ouput .holder{
+    border-color: hsl(0, 100%, 82%);
+    background-color: hsl(0, 100%, 87%);
+}
+
+.rendering, .rendering .holder{
+    border-color: hsl(199, 96%, 64%);
+    background-color: hsl(199, 96%, 69%);
+}
+
+.typography, .typography .holder{
+    border-color: hsl(161, 96%, 64%);
+    background-color: hsl(161, 96%, 69%);
+}
+
+.constants, .constants .holder{
+    border-color: hsl(46, 100%, 69%);
+    background-color: hsl(46, 100%, 74%);
 }
 
 .any, .any .holder{

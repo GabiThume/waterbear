@@ -92,6 +92,129 @@
                     "value": "255"
                 }
             ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-4c30dl3cb9e7",
+            "type": "number",
+            "script": "alpha(color({{1}}))",
+            "help": "Extracts the alpha value from a color",
+            "sockets": [
+                {
+                    "name": "alpha color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-4c302l3cb1e7",
+            "type": "number",
+            "script": "blue(color({{1}}))",
+            "help": "Extracts the blue value from a color",
+            "sockets": [
+                {
+                    "name": "blue color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-43312l3cb1e7",
+            "type": "number",
+            "script": "brightness(color({{1}}))",
+            "help": "Extracts the brightness value from a color",
+            "sockets": [
+                {
+                    "name": "brightness color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-72311l3cb1e7",
+            "type": "number",
+            "script": "green(color({{1}}))",
+            "help": "Extracts the green value from a color",
+            "sockets": [
+                {
+                    "name": "green color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-43318l37b137",
+            "type": "number",
+            "script": "hue(color({{1}}))",
+            "help": "Extracts the hue value from a color",
+            "sockets": [
+                {
+                    "name": "hue color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-95328l37b137",
+            "type": "number",
+            "script": "red(color({{1}}))",
+            "help": "Extracts the red value from a color",
+            "sockets": [
+                {
+                    "name": "red color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-cd328237b137",
+            "type": "number",
+            "script": "saturation(color({{1}}))",
+            "help": "Extracts the saturation value from a color",
+            "sockets": [
+                {
+                    "name": "saturation color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-4c3053cb9e7",
+            "type": "color",
+            "script": "blendColor(color({{1}}), color({{2}}), {{3}})",
+            "help": "Blends two color values together based on the blending mode given as the MODE parameter",
+            "sockets": [
+                {
+                    "name": "blend color",
+                    "type": "color",
+                    "value": "#0000000"
+                },
+                {
+                    "name": "and",
+                    "type": "color",
+                    "value": "#0000000"
+                },
+                {
+                    "name": "mode",
+                    "type": "choice",
+                    "options": "blend",
+                    "value": "choice"
+                }
+            ]
         }
     ]
 }

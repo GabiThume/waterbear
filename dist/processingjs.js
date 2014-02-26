@@ -15433,8 +15433,6 @@ wb.menu = menu;
         wb.historySwitchState('result');
     });
 
-
-
     function clearStage(event){
         document.body.classList.remove('running');
         document.querySelector('.stageframe').contentWindow.postMessage(JSON.stringify({command: 'reset'}), '*');
@@ -15453,17 +15451,6 @@ wb.menu = menu;
         view.innerHTML = '<pre class="language-javascript">' + wb.prettyScript(elements) + '</pre>';
         hljs.highlightBlock(view.firstChild);
     };
-
-    //<script type="text/processing" data-processing-target="processing-canvas">
-    //void setup() {
-    //  size(200, 200);
-    //  background(100);
-    //  stroke(255);
-    //  ellipse(50, 50, 25, 25);
-    //  println('hello web!');
-    //}
-    //</script>
-    //<canvas id="processing-canvas"> </canvas>
 
     // End UI section
 
@@ -15488,9 +15475,16 @@ wb.menu = menu;
 })(wb, Event);
 /*end languages/processingjs/processingjs.js*/
 
+/*begin languages/processingjs/environment.js*/
+// expose these globally so the Block/Label methods can find them
+wb.choiceLists.cursor = ['ARROW', 'CROSS', 'HAND', 'MOVE', 'TEXT', 'WAIT'];
+
+/*end languages/processingjs/environment.js*/
+
 /*begin languages/processingjs/colors.js*/
 // expose these globally so the Block/Label methods can find them
 wb.choiceLists.mode = ['RGB', 'HSB'];
+wb.choiceLists.blend = ['BLEND', 'ADD', 'SUBTRACT', 'DARKEST', 'LIGHTEST', 'DIFFERENCE', 'EXCLUSION', 'MULTIPLY', 'SCREEN', 'OVERLAY', 'HARD_LIGHT', 'SOFT_LIGHT', 'DODGE', 'BURN'];
 
 /*end languages/processingjs/colors.js*/
 
@@ -15611,6 +15605,18 @@ wb.menu({
             ]
         },
         {
+            "blocktype": "expression",
+            "id": "25pc82i3-bf70-4617-a732-813c4n7bya2",
+            "script": "frameRate",
+            "type": "number",
+            "help": "The system variable frameRate contains the approximate frame rate of the software as it executes",
+            "sockets": [
+                {
+                    "name": "frame rate"
+                }
+            ]
+        },
+        {
             "blocktype": "step",
             "id": "71eb3271-6de0-4122-82cc-4c5077ac19e7",
             "script": "frameRate({{1}});",
@@ -15635,12 +15641,103 @@ wb.menu({
                     "value": null
                 }
             ]
+        },
+        {
+            "blocktype": "step",
+            "id": "0237b5ab-d22a-45f9-af38-4564bc98cbc3",
+            "script": "cursor({{1}});",
+            "help": "Sets the cursor to a predefined symbol, an image, or turns it on if already hidden",
+            "sockets": [
+                {
+                    "name": "cursor",
+                    "type": "choice",
+                    "options": "cursor",
+                    "value": "choice"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "8e720cc7-929f-4079-8220-c7a82ca14023",
+            "script": "noCursor();",
+            "help": "Hides the cursor from view",
+            "sockets": [
+                {
+                    "name": "no cursor"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "25pc82i3-bf70-4617-a732-112r4n74ya2",
+            "script": "screen.width",
+            "type": "number",
+            "help": "System variable which stores the width of the computer screen",
+            "sockets": [
+                {
+                    "name": "screen width"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "25pc82i3-bf70-4617-a732-313r4n342a2",
+            "script": "screen.height",
+            "type": "number",
+            "help": "System variable which stores the height of the computer screen",
+            "sockets": [
+                {
+                    "name": "screen height"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "nadc82i3-bf70-4617-a732-230d497b5a67",
+            "script": "online",
+            "type": "boolean",
+            "help": "Confirms if a Processing program is running inside a web browser",
+            "sockets": [
+                {
+                    "name": "online"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "nadc82i3-bf70-4617-a732-920d49775a29",
+            "script": "focused",
+            "type": "boolean",
+            "help": "Confirms if a Processing program is focused, meaning that it is active and will accept input from mouse or keyboard",
+            "sockets": [
+                {
+                    "name": "focused"
+                }
+            ]
         }
     ]
-}
-
-);
+});
 /*end languages/processingjs/environment.json*/
+
+/*begin languages/processingjs/data.json*/
+wb.menu({
+    "name": "Data",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-0378-a762-9201493b5a21",
+            "script": "height",
+            "type": "number",
+            "help": "System variable which stores the height of the display window",
+            "sockets": [
+                {
+                    "name": "height"
+                }
+            ]
+        }
+    ]
+});
+/*end languages/processingjs/data.json*/
 
 /*begin languages/processingjs/controls.json*/
 wb.menu({
@@ -16470,6 +16567,107 @@ wb.menu({
 );
 /*end languages/processingjs/input.json*/
 
+/*begin languages/processingjs/output.json*/
+wb.menu({
+    "name": "Output",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-0378-mso9-9201493b5a21",
+            "script": "height",
+            "type": "number",
+            "help": "System variable which stores the height of the display window",
+            "sockets": [
+                {
+                    "name": "height"
+                }
+            ]
+        }
+    ]
+});
+/*end languages/processingjs/output.json*/
+
+/*begin languages/processingjs/transform.json*/
+wb.menu({
+    "name": "Transform",
+    "blocks": [
+        {
+            "blocktype": "step",
+            "id": "01124271-6dc0-4j82-81kc-098ehudtcb1",
+            "script": "pushMatrix();",
+            "help": "Pushes the current transformation matrix onto the matrix stack",
+            "sockets": [
+                {
+                    "name": "push matrix"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "01124271-6dc0-4j82-81kc-5637dy738ue",
+            "script": "popMatrix();",
+            "help": "Pops the current transformation matrix off the matrix stack",
+            "sockets": [
+                {
+                    "name": "pop matrix"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "e3d6a995-4ae9-495b-bdd6-ee907d0c7915",
+            "script": "rotate({{1}});",
+            "help": "Rotates an object the amount specified by the angle parameter",
+            "sockets": [
+                {
+                    "name": "rotate",
+                    "type": "number",
+                    "value": 30
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "916c79df-40f1-4280-a0p3-a08dh2ikzps",
+            "script": "translate({{1}}, {{2}});",
+            "help": "Specifies an amount to displace objects within the display window",
+            "sockets": [
+                {
+                    "name": "translate x",
+                    "type": "number",
+                    "value": 30
+                },
+                {
+                    "name": "y",
+                    "type": "number",
+                    "value": 20
+                }
+            ]
+        }
+    ]
+});
+/*end languages/processingjs/transform.json*/
+
+/*begin languages/processingjs/lights.json*/
+wb.menu({
+    "name": "Lights",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-4647-a762-920d493b5a21",
+            "script": "height",
+            "type": "number",
+            "help": "System variable which stores the height of the display window",
+            "sockets": [
+                {
+                    "name": "height"
+                }
+            ]
+        }
+    ]
+});
+/*end languages/processingjs/lights.json*/
+
 /*begin languages/processingjs/colors.json*/
 wb.menu({
     "name": "Colors",
@@ -16565,12 +16763,195 @@ wb.menu({
                     "value": "255"
                 }
             ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-4c30dl3cb9e7",
+            "type": "number",
+            "script": "alpha(color({{1}}))",
+            "help": "Extracts the alpha value from a color",
+            "sockets": [
+                {
+                    "name": "alpha color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-4c302l3cb1e7",
+            "type": "number",
+            "script": "blue(color({{1}}))",
+            "help": "Extracts the blue value from a color",
+            "sockets": [
+                {
+                    "name": "blue color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-43312l3cb1e7",
+            "type": "number",
+            "script": "brightness(color({{1}}))",
+            "help": "Extracts the brightness value from a color",
+            "sockets": [
+                {
+                    "name": "brightness color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-72311l3cb1e7",
+            "type": "number",
+            "script": "green(color({{1}}))",
+            "help": "Extracts the green value from a color",
+            "sockets": [
+                {
+                    "name": "green color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-43318l37b137",
+            "type": "number",
+            "script": "hue(color({{1}}))",
+            "help": "Extracts the hue value from a color",
+            "sockets": [
+                {
+                    "name": "hue color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-95328l37b137",
+            "type": "number",
+            "script": "red(color({{1}}))",
+            "help": "Extracts the red value from a color",
+            "sockets": [
+                {
+                    "name": "red color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-cd328237b137",
+            "type": "number",
+            "script": "saturation(color({{1}}))",
+            "help": "Extracts the saturation value from a color",
+            "sockets": [
+                {
+                    "name": "saturation color",
+                    "type": "color",
+                    "value": "#0000000"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "01123271-3dc0-6a82-01cc-4c3053cb9e7",
+            "type": "color",
+            "script": "blendColor(color({{1}}), color({{2}}), {{3}})",
+            "help": "Blends two color values together based on the blending mode given as the MODE parameter",
+            "sockets": [
+                {
+                    "name": "blend color",
+                    "type": "color",
+                    "value": "#0000000"
+                },
+                {
+                    "name": "and",
+                    "type": "color",
+                    "value": "#0000000"
+                },
+                {
+                    "name": "mode",
+                    "type": "choice",
+                    "options": "blend",
+                    "value": "choice"
+                }
+            ]
         }
     ]
 }
 
 );
 /*end languages/processingjs/colors.json*/
+
+/*begin languages/processingjs/image.json*/
+wb.menu({
+    "name": "Image",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-mhdo-a762-9201493b5a21",
+            "script": "height",
+            "type": "number",
+            "help": "System variable which stores the height of the display window",
+            "sockets": [
+                {
+                    "name": "height"
+                }
+            ]
+        }
+    ]
+});
+/*end languages/processingjs/image.json*/
+
+/*begin languages/processingjs/rendering.json*/
+wb.menu({
+    "name": "Rendering",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-0378-9sj4-9201493b5a21",
+            "script": "height",
+            "type": "number",
+            "help": "System variable which stores the height of the display window",
+            "sockets": [
+                {
+                    "name": "height"
+                }
+            ]
+        }
+    ]
+});
+/*end languages/processingjs/rendering.json*/
+
+/*begin languages/processingjs/typography.json*/
+wb.menu({
+    "name": "Typography",
+    "blocks": [
+        {
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-0378-0932-9201493b5a21",
+            "script": "height",
+            "type": "number",
+            "help": "System variable which stores the height of the display window",
+            "sockets": [
+                {
+                    "name": "height"
+                }
+            ]
+        }
+    ]
+});
+/*end languages/processingjs/typography.json*/
 
 /*begin languages/processingjs/math.json*/
 wb.menu({
@@ -16965,63 +17346,22 @@ wb.menu({
 });
 /*end languages/processingjs/math.json*/
 
-/*begin languages/processingjs/transform.json*/
+/*begin languages/processingjs/constants.json*/
 wb.menu({
-    "name": "Transform",
+    "name": "Constants",
     "blocks": [
         {
-            "blocktype": "step",
-            "id": "01124271-6dc0-4j82-81kc-098ehudtcb1",
-            "script": "pushMatrix();",
-            "help": "Pushes the current transformation matrix onto the matrix stack",
+            "blocktype": "expression",
+            "id": "da2c8203-bf80-0378-sw32-9201493b5a21",
+            "script": "height",
+            "type": "number",
+            "help": "System variable which stores the height of the display window",
             "sockets": [
                 {
-                    "name": "push matrix"
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "01124271-6dc0-4j82-81kc-5637dy738ue",
-            "script": "popMatrix();",
-            "help": "Pops the current transformation matrix off the matrix stack",
-            "sockets": [
-                {
-                    "name": "pop matrix"
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "e3d6a995-4ae9-495b-bdd6-ee907d0c7915",
-            "script": "rotate({{1}});",
-            "help": "Rotates an object the amount specified by the angle parameter",
-            "sockets": [
-                {
-                    "name": "rotate",
-                    "type": "number",
-                    "value": 30
-                }
-            ]
-        },
-        {
-            "blocktype": "step",
-            "id": "916c79df-40f1-4280-a0p3-a08dh2ikzps",
-            "script": "translate({{1}}, {{2}});",
-            "help": "Specifies an amount to displace objects within the display window",
-            "sockets": [
-                {
-                    "name": "translate x",
-                    "type": "number",
-                    "value": 30
-                },
-                {
-                    "name": "y",
-                    "type": "number",
-                    "value": 20
+                    "name": "height"
                 }
             ]
         }
     ]
 });
-/*end languages/processingjs/transform.json*/
+/*end languages/processingjs/constants.json*/

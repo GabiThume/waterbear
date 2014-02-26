@@ -38,6 +38,18 @@
             ]
         },
         {
+            "blocktype": "expression",
+            "id": "25pc82i3-bf70-4617-a732-813c4n7bya2",
+            "script": "frameRate",
+            "type": "number",
+            "help": "The system variable frameRate contains the approximate frame rate of the software as it executes",
+            "sockets": [
+                {
+                    "name": "frame rate"
+                }
+            ]
+        },
+        {
             "blocktype": "step",
             "id": "71eb3271-6de0-4122-82cc-4c5077ac19e7",
             "script": "frameRate({{1}});",
@@ -62,7 +74,79 @@
                     "value": null
                 }
             ]
+        },
+        {
+            "blocktype": "step",
+            "id": "0237b5ab-d22a-45f9-af38-4564bc98cbc3",
+            "script": "cursor({{1}});",
+            "help": "Sets the cursor to a predefined symbol, an image, or turns it on if already hidden",
+            "sockets": [
+                {
+                    "name": "cursor",
+                    "type": "choice",
+                    "options": "cursor",
+                    "value": "choice"
+                }
+            ]
+        },
+        {
+            "blocktype": "step",
+            "id": "8e720cc7-929f-4079-8220-c7a82ca14023",
+            "script": "noCursor();",
+            "help": "Hides the cursor from view",
+            "sockets": [
+                {
+                    "name": "no cursor"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "25pc82i3-bf70-4617-a732-112r4n74ya2",
+            "script": "screen.width",
+            "type": "number",
+            "help": "System variable which stores the width of the computer screen",
+            "sockets": [
+                {
+                    "name": "screen width"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "25pc82i3-bf70-4617-a732-313r4n342a2",
+            "script": "screen.height",
+            "type": "number",
+            "help": "System variable which stores the height of the computer screen",
+            "sockets": [
+                {
+                    "name": "screen height"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "nadc82i3-bf70-4617-a732-230d497b5a67",
+            "script": "online",
+            "type": "boolean",
+            "help": "Confirms if a Processing program is running inside a web browser",
+            "sockets": [
+                {
+                    "name": "online"
+                }
+            ]
+        },
+        {
+            "blocktype": "expression",
+            "id": "nadc82i3-bf70-4617-a732-920d49775a29",
+            "script": "focused",
+            "type": "boolean",
+            "help": "Confirms if a Processing program is focused, meaning that it is active and will accept input from mouse or keyboard",
+            "sockets": [
+                {
+                    "name": "focused"
+                }
+            ]
         }
     ]
 }
-
